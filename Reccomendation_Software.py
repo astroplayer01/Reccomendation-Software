@@ -1,6 +1,6 @@
-from Inverted_Index_Hash import hash
+from Inverted_Index_Hash import hash, find_movie_by_name, find_movies_by_genre, find_movies_by_length, find_movies_by_rating
 
-def Reccomendation_Software():
+def main():
     welcome_message()
 
 

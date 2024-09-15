@@ -41,16 +41,16 @@ def hash():
         length_index[length_range].append(movie)
 
 #querey the indexes
-    def find_movies_by_genre(genre):
-        return genre_index.get(genre, [])
+def find_movies_by_genre(genre):
+    return genre_index.get(genre, [])
 
-    def find_movies_by_rating(rating):
-        return rating_index.get(rating, [])
+def find_movies_by_rating(rating):
+    return rating_index.get(rating, [])
 
-    def find_movies_by_length(length_range):
-        return length_index.get(length_range, [])
+def find_movies_by_length(length_range):
+    return length_index.get(length_range, [])
 
-    def find_movie_by_name(name):
-        return name_index.get(name, None)
+def find_movie_by_name(name):
+    return name_index.get(name, None)
 
 
