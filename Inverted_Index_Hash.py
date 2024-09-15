@@ -50,7 +50,12 @@ def find_movies_by_rating(rating):
 def find_movies_by_length(length_range):
     return length_index.get(length_range, [])
 
-def find_movie_by_name(name):
-    return name_index.get(name, None)
+def find_movie_by_name(partial_name):
+    results = []
+    for name in name_index:
+        if partial_name.lower() in name.lower():
+            results.extend(name_index[name])
+    return results
+
 
 
