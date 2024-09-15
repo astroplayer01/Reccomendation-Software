@@ -17,19 +17,20 @@ def main():
         
         if input_type == 'genre':
             results = find_movies_by_genre(value)
-            print("Movies in genre", value, ":", results)
+            print_result(value, results, input_type)
+            
         
         elif input_type == 'rating':
             results = find_movies_by_rating(value)
-            print("Movies with rating", value, ":", results)
+            print_result(value, results, input_type)
         
         elif input_type == 'length':
             results = find_movies_by_length(value)
-            print("Movies in length range", value, ":", results)
+            print_result(value, results, input_type)
         
         elif input_type == 'name':
             results = find_movie_by_name(value)
-            print("Movies matching name", value, ":", results)
+            print_result(value, results, input_type)
         
         else:
             print("Invalid input. Please try again.")
@@ -79,6 +80,23 @@ def determine_input_type(user_input):
     # Otherwise, assume it's a movie name
     return 'name', user_input
 
+def print_result(value, results, input_type):
+    if input_type == 'genre':
+        print("Movies in genre", value, ":")
+        
+    elif input_type == 'rating':
+        print("Movies with rating", value, ":")
+        
+    elif input_type == 'length':
+        print("Movies in length range", value, ":")
+        
+    elif input_type == 'name':
+        print("Movies matching name", value, ":")
+
+    for result in results:
+        genre, name, rating, length = result
+
+        print(name + ", " + genre + ", " + rating + ", " + length)
 
 
 if __name__ == "__main__":
