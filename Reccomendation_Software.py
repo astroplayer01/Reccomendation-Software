@@ -2,7 +2,8 @@ from Inverted_Index_Hash import hash, find_movie_by_name, find_movies_by_genre, 
 
 
 def main():
-    print("Welcome to the Movie Recommendation System!")
+    hash()
+    welcome_message()
     print("You can search for movies by typing a genre, rating, length, or name.")
     
     while True:
@@ -52,19 +53,23 @@ def welcome_message():
 
 def determine_input_type(user_input):
     try:
-        # Check if input is a float (rating)
-        rating = float(user_input)
-        return 'rating', rating
+        # First, try to convert the input to an integer
+        length = int(user_input)
+        if length >= 10:
+            length_range = f"{(length // 10) * 10}-{((length // 10) + 1) * 10}"
+            return 'length', length_range
     except ValueError:
         pass
 
     try:
-        # Check if input is an integer (length)
-        length = int(user_input)
-        length_range = f"{(length // 10) * 10}-{((length // 10) + 1) * 10}"
-        return 'length', length_range
+        # If it's not an integer, try to convert it to a float (rating)
+        rating = float(user_input)
+        if rating < 10:
+            return 'rating', rating
     except ValueError:
         pass
+
+    
 
     # Check if input is a genre
     genres = ['drama', 'crime', 'action', 'thriller', 'biography', 'adventure', 'sci-fi', 'mystery', 'war', 'fantasy']
