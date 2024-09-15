@@ -42,7 +42,16 @@ def set_hash():
 
 #querey the indexes
 def find_movies_by_genre(genre):
-    pass
+    return genre_index.get(genre, [])
+
+def find_movies_by_rating(rating):
+    return rating_index.get(rating, [])
+
+def find_movies_by_length(length_range):
+    return length_index.get(length_range, [])
+
+def find_movie_by_name(name):
+    return name_index.get(name, None)
 
 
 
